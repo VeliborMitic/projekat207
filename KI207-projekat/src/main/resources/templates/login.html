@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Login stranica</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>	
+<div class="container">
+	<img th:src="@{/images/header.jpg}" class="img-responsive center-block" 
+		width="" height="" alt="ChronoHeader" />
+	<form th:action="@{/login}" method="POST" class="form-signin">
+		<h3 class="form-signin-heading" th:text="Dobrodosli"></h3>
+		<br/>
+		 
+		<input type="text" id="userName" name="userName"  th:placeholder="Username"
+			class="form-control" /> <br/> 
+		<input type="password"  th:placeholder="Password"
+			id="password" name="password" class="form-control" /> <br /> 
+			
+		<div align="center" th:if="${param.error}">
+			<p style="font-size: 20; color: #FF1C19;">Pogresno korisnicko ime ili password</p>
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+	</form>
+	<div class="col-md-2 col-md-offset-5" >
+		<form th:action="@{/registracija}" method="get" class="reg">
+			<button class="btn btn-md btn-danger btn-block" type="Submit">Registracija</button>
+		</form>	
+	</div>
+	
+</div>
+</body>
+</html>

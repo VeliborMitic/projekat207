@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Index</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<header id="main-header">
+			<div class="header-top row">
+				<img th:src="@{/images/header.jpg}"
+					class="img-responsive center-block" width="" height=""
+					alt="ChronoHeader" />
+			</div>
+			
+			<div class="header-bottom row">
+				<div class="col-md-2 col-md-offset-30">
+					<form th:action="@{/login}" method="get" class="reg">
+						<button class="btn btn-md btn-danger btn-block" type="Submit">Login</button>
+					</form>
+					<form th:action="@{/registracija}" method="get" class="reg">
+						<button class="btn btn-md btn-danger btn-block" type="Submit">Registracija</button>
+					</form>
+				
+				
+				</div>
+			</div>
+		</header>
+		<footer id="main-footer" class="row">
+			<p>Copyright&copy; Metropolitan VMV Team</p>
+		</footer>
+		<!-- footer -->
+	</div>
+	</div>
+</body>
+</html>

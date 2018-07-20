@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Odaberite proizvod</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  	<img th:src="@{/images/header.jpg}" class="img-responsive center-block" 
+			width="" height="" alt="ChronoHeader" />
+  <div class="page-header">
+    <h1 th:utext="${userName}" class="center"></h1>      
+  </div>    
+</div>
+<div class="container">
+	<div class="col-md-10 col-md-offset-1" >
+		<h2>Proizvodi</h2>
+		<table class="table table-striped">
+		    <tr>
+		        <th>Naziv proizvoda</th>
+		        <th>Sifra</th>
+		        <th>Opis</th>
+		        <th>Cena</th>
+		        <th>Odaberi</th>
+		    </tr>
+		    <tr th:each="proizvod : ${proizvodi}">
+		        <td th:utext="${proizvod.naziv}"></td>
+		        <td th:utext="${proizvod.sifra}"></td>
+		        <td th:utext="${proizvod.opis}"></td>
+		        <td th:utext="${proizvod.cena}"></td>
+		        <td>
+		        	<a class="btn btn-xs btn-danger btn-block" 
+                        th:href="${'/kupac/items/' + proizvod.id + '/update'}" th:value="${proizvod.id}">Odaberi</a>
+		        </td>
+		    </tr>
+		</table>
+	</div>
+	<div class="d-inline-block">
+		<div class="col-md-3 col-md-offset-3  btn-group" >
+			<form th:action="@{/logout}" method="get">
+				<button class="btn btn-md btn-danger btn-block" name="logout"
+					type="Submit">Logout</button>
+			</form> 
+		</div>
+		<div class="col-md-3 btn-group" >
+			<form th:action="@{/kupac/dodatiProizvodi}" method="get">
+				<button class="btn btn-md btn-default btn-block" name="proizvodi"
+					type="Submit">Vasi proizvodi</button>
+			</form> 
+		</div>
+	</div>
+</div>
+ 
+</body>
+</html>

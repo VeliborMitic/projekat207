@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: KI207-projekat
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: VEX
+Implementation-Vendor-Id: com.met
+Build-Jdk: 1.8.0_171
+Implementation-URL: http://projects.spring.io/spring-boot/KI207-projek
+ at/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
