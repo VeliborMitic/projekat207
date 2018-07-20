@@ -76,7 +76,7 @@ public class LoginController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/kupac/home", method = RequestMethod.GET)
+	@RequestMapping(value="kupac/home", method = RequestMethod.GET)
 	public ModelAndView home(){
 		ModelAndView model = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

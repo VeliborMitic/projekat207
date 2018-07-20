@@ -1,6 +1,7 @@
 
 package com.met.projekat.controller;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +65,7 @@ public class ProizvodController {
 		if (!proizvodi.isEmpty()) {
 			model.addObject("proizvodi", proizvodi);
 		}
-		model.setViewName("kupac/dodatiProizvodi");////////////
+		model.setViewName("/kupac/dodatiProizvodi");////////////
 		return model;
 	}
     
@@ -81,7 +82,7 @@ public class ProizvodController {
 
 		model.addAttribute("user", user);
 		model.addAttribute("proizvodi", user.getProizvodi());
-		return "redirect:/kupac/dodatiProizvodi";//////////////////////////////////
+		return "redirect:/kupac/home";//////////////////////////////////
 
 	}
 	
