@@ -83,7 +83,7 @@ public class LoginController {
 		User user = userService.findUserByUserName(auth.getName());
 		
 		model.addObject("user", user);
-		model.addObject("userName", "Dobrodosli " + user.getFirstName() + " " + user.getLastName() + " (" + user.getUserName() + ")");
+		model.addObject("userName", "Dobrodosli "  + user.getFirstName() + " " + user.getLastName() + " (" + user.getUserName() + ")");
 		model.addObject("proizvod", new Proizvod());
 
 		Set<Proizvod> proizvodi =  new HashSet<>(proizvodServiceImpl.listAllProizvodi());

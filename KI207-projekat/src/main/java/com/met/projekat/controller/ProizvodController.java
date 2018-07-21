@@ -73,7 +73,6 @@ public class ProizvodController {
 	public String showUpdateUserForm(@PathVariable("id") String id, Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByUserName(auth.getName());
-		
 		Proizvod proizvod = proizvodServiceImpl.findOne(Integer.valueOf(id));
 		
 		user.getProizvodi().add(proizvod);

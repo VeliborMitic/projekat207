@@ -44,7 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		http.
 			authorizeRequests()
-				.antMatchers("/").permitAll()
+				.antMatchers("/index").permitAll()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/registracija").permitAll()
 				.antMatchers("/home/**").hasAuthority("KUPAC")
