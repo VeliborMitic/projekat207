@@ -2,137 +2,76 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Proizvodi</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Proizvodi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-.body {
-	font-family: "Lato", sans-serif;
-}
-
-/* Fixed sidenav, full height */
-.sidenav {
-	height: 100%;
-	width: 200px;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: #e9e3ba;
-	overflow-x: hidden;
-	padding-top: 20px;
-}
-
-/* Style the sidenav links and the dropdown button */
-.sidenav a, .dropdown-btn {
-	padding: 6px 8px 6px 16px;
-	text-decoration: none;
-	font-size: 20px;
-	color: #000000;
-	display: block;
-	border: none;
-	background: none;
-	width: 100%;
-	text-align: left;
-	cursor: pointer;
-	outline: none;
-}
-
-/* On mouse-over */
-.sidenav a:hover, .dropdown-btn:hover {
-	color: #f1f1f1;
-}
-
-/* Main content */
-.main {
-	margin-left: 200px; /* Same as the width of the sidenav */
-	font-size: 20px; /* Increased text to enable scrolling */
-	padding: 0px 10px;
-}
-
-/* Add an active class to the active dropdown button */
-.active {
-	background-color: green;
-	color: white;
-}
-
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-.dropdown-container {
-	display: none;
-	background-color: #262626;
-	padding-left: 8px;
-}
-
-/* Optional: Style the caret down icon */
-.fa-caret-down {
-	float: right;
-	padding-right: 8px;
-}
-
-/* Some media queries for responsiveness */
-@media screen and (max-height: 450px) {
-	.sidenav {
-		padding-top: 15px;
-	}
-	.sidenav a {
-		font-size: 18px;
-	}
-}
-</style>
+<link rel="stylesheet" href="/css/page.css">
 </head>
 <body>
-	<div class="sidenav">
-		<a href="/index">Home</a> 
-		<a href="/login">Login</a> 
-		<a href="/registracija">Registracija</a>
-	</div>
-<div class="container">
-  	<img th:src="@{/images/header.jpg}" class="img-responsive center-block" 
-			width="" height="" alt="Metropolitan" /> 
-</div>
-<div class="container">
-	<div class="col-md-10 col-md-offset-1" >
-		<h2>Izabrani proizvodi</h2>
-		<table class="table table-striped">
-		    <tr>
-		        <th>Naziv proizvoda</th>
-		        <th>Sifra</th>
-		        <th>Opis</th>
-		        <th>Cena</th>
-		        <th>Izbaci</th>
-		    </tr>
-		    <tr th:each="proizvod : ${proizvodi}">
-		        <td th:utext="${proizvod.naziv}"></td>
-		        <td th:utext="${proizvod.sifra}"></td>
-		        <td th:utext="${proizvod.opis}"></td>
-		        <td th:utext="${proizvod.cena}"></td>
-		        <td>
-		        	<a class="btn btn-xs btn-danger btn-block" 
-                        th:href="${'/kupac/items/' + proizvod.id + '/remove'}" th:value="${proizvod.id}">Izbaci</a>
-		        </td>
-		    </tr>
-		</table>
-	</div>
-<div class="d-inline-block">
-		<div class="col-md-3 col-md-offset-3  btn-group" >
-			<form th:action="@{/logout}" method="get">
-				<button class="btn btn-md btn-danger btn-block" name="logout"
-					type="Submit">Logout</button>
-			</form> 
+	<div class="pageContentWrapper">
+		<div class="sidenav">
+			<a href="/index">Home</a> <a href="/login">Login</a> <a
+				href="/registracija">Registracija</a>
 		</div>
-		<div class="col-md-3 btn-group" >
-			<form th:action="@{/kupac/home}" method="get">
-				<button class="btn btn-md btn-default btn-block" name="proizvodi"
-					type="Submit">Odaberi proizvod</button>
-			</form> 
+
+		<div class="sidenav">
+			<a href="/index">Home</a> <a href="/login">Login</a> <a
+				href="/registracija">Registracija</a>
+		</div>
+		<div class="container">
+			<img th:src="@{/images/header.jpg}"
+				class="img-responsive center-block" width="" height=""
+				alt="Metropolitan" />
+		</div>
+		<div class="container">
+			<div class="col-md-10 col-md-offset-1">
+				<h2>Odabrani proizvodi</h2>
+				<table class="table table-striped">
+					<tr>
+						<th>Naziv proizvoda</th>
+						<th>Sifra</th>
+						<th>Opis</th>
+						<th>Cena</th>
+						<th>Izbaci</th>
+					</tr>
+					<tr th:each="proizvod : ${proizvodi}">
+						<td th:utext="${proizvod.naziv}"></td>
+						<td th:utext="${proizvod.sifra}"></td>
+						<td th:utext="${proizvod.opis}"></td>
+						<td th:utext="${proizvod.cena}"></td>
+						<td><a class="btn btn-xs btn-danger btn-block"
+							th:href="${'/kupac/items/' + proizvod.id + '/remove'}"
+							th:value="${proizvod.id}">Izbaci</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="d-inline-block">
+				<div class="col-md-3 col-md-offset-3  btn-group">
+					<form th:action="@{/logout}" method="get">
+						<button class="btn btn-md btn-danger btn-block" name="logout"
+							type="Submit">Logout</button>
+					</form>
+				</div>
+				<div class="col-md-3 btn-group">
+					<form th:action="@{/kupac/home}" method="get">
+						<button class="btn btn-md btn-primary btn-block" name="proizvodi"
+							type="Submit">Nazad na kupovinu</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<footer id="main-footer" class="row">
+				<p>Copyright&copy; Metropolitan VMV Team</p>
+			</footer>
 		</div>
 	</div>
-</div>
- 
 </body>
 </html>
